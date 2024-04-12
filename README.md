@@ -87,6 +87,8 @@ vale insertar una imagen o una captura de pantalla, debe hacerse en formato *mar
 def __mul__(self, other):
         """
         Retorna la multiplicación de un vector por un vector (elemento por elemento)
+        >>> Vector([1, 2, 3]) * Vector([4, 5, 6])
+         Vector([4, 10, 18])
         """
         if isinstance(other, Vector):
             if len(self.vector) != len(other.vector):
@@ -100,6 +102,8 @@ def __mul__(self, other):
     def __rmul__(self, other):
         """
         Retorna la multiplicación de un vector por un escalar
+        >>> 2 * Vector([1, 2, 3])
+         Vector([2, 4, 6])
         """
         if isinstance(other, (int, float)):
             return Vector([other * value for value in self.vector])
@@ -109,6 +113,8 @@ def __mul__(self, other):
     def __matmul__(self, other):
         """
         Retorna el producto escalar de dos vectores
+        >>> Vector([1, 2, 3]) @ Vector([4, 5, 6])
+         32
         """
         if isinstance(other, Vector):
             if len(self.vector) != len(other.vector):
